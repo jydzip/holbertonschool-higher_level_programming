@@ -7,5 +7,6 @@ def print_matrix_integer(matrix=[[]]):
             _i += 1
             print(
                     "{:d}".format(column),
-                    end="\n" if _i == _size else " "
+                    end="" if _i == _size else " "
             )
+        print()
