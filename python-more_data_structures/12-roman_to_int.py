@@ -15,14 +15,18 @@ def roman_to_int(roman_string):
     }
     for i in range(len(roman_string)):
         letter = roman_string[i]
-        try:
-            next_letter = roman_string[i + 1]
-        except Exception:
-            next_letter = None
+        previous_letter = None
+        if i > 0:
+            try:
+                previous_letter = roman_string[i - 1]
+            except Exception:
+                previous_letter = None
 
-        if letter == "I" and next_letter in ["V", "X"]:
-            result += -2
-        elif letter == "C" and next_letter in ["M", "D"]:
-            result += -200
-        result += _romans.get(letter, 0)
+        r = _romans.get(letter, 0)
+        less = None
+        if previous_letter is not None:
+            less = _romans[previous_letter]
+        if less is not None and less < r:
+            result -= (less * 2)
+        result += r
     return result
