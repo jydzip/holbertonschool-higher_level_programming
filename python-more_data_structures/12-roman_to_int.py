@@ -17,10 +17,10 @@ def roman_to_int(roman_string):
         letter = roman_string[i]
         try:
             next_letter = roman_string[i + 1]
-        except:
+        except Exception:
             next_letter = None
 
-        if next_letter in ["V", "X"]:
+        if letter == "I" and next_letter in ["V", "X"]:
             result += -2
         result += _romans.get(letter, 0)
     return result
