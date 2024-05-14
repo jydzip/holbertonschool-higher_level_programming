@@ -22,7 +22,7 @@ def roman_to_int(roman_string):
 
         if letter == "I" and next_letter in ["V", "X"]:
             result += -2
-        elif letter == "C" and next_letter in ["M"]:
+        elif letter == "C" and next_letter in ["M", "D"]:
             result += -200
         result += _romans.get(letter, 0)
     return result
