@@ -60,9 +60,8 @@ class Square:
             print()
             return
         for i in range(self.size):
-            for ii in range(self.size + x):
-                if (ii < x):
-                    print(" ", end="")
-                else:
-                    print("#", end="")
+            for ii in range(x):
+                print(" ", end="")
+            for iii in range(self.size):
+                print("#", end="")
             print()
