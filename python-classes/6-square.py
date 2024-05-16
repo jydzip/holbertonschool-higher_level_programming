@@ -47,7 +47,7 @@ class Square:
                 value (tuple[int]): Value corresponding to the position.
         """
         try:
-            if len(position) != 2 or position[0] < 0 or position[1] < 0:
+            if len(value) != 2 or value[0] < 0 or value[1] < 0:
                 raise
         except Exception:
             raise TypeError("position must be a tuple of 2 positive integers")
