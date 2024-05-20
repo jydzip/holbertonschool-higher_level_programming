@@ -14,3 +14,7 @@ ZeroDivisionError: division by zero
 >>> matrix_divided([[1, 2, 3], [4, 5, 6]], "div")
 Traceback (most recent call last):
 TypeError: div must be a number
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 3.3)
+[[0.3, 0.61, 0.91], [1.21, 1.52, 1.82]]
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], -5)
+[[-0.2, -0.4, -0.6], [-0.8, -1.0, -1.2]]
