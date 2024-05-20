@@ -76,9 +76,10 @@ class Rectangle:
 
     def __str__(self):
         text = ""
-        for i in range(self.height):
-            text += "{:s}{:s}".format(
-                self.width * "#",
-                "" if (i + 1) == self.height else "\n"
-            )
+        if self.height != 0 and self.width != 0:
+            for i in range(self.height):
+                text += "{:s}{:s}".format(
+                    self.width * "#",
+                    "" if (i + 1) == self.height else "\n"
+                )
         return text
