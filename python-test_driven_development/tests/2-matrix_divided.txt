@@ -18,3 +18,9 @@ TypeError: div must be a number
 [[0.3, 0.61, 0.91], [1.21, 1.52, 1.82]]
 >>> matrix_divided([[1, 2, 3], [4, 5, 6]], -5)
 [[-0.2, -0.4, -0.6], [-0.8, -1.0, -1.2]]
+>>> matrix_divided([[]], 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+>>> matrix_divided([], 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
