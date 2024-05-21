@@ -30,6 +30,13 @@ The number two is optionnal, by default is equal to 98.
 	>>> add_integer(2)
 	100
 
+With number negative, work too.
+
+::
+
+	>>> add_integer(100.3, -2)
+	98
+
 Non-Numbers
 ===========
 
@@ -37,12 +44,12 @@ Non-Numbers
 
 ::
 
-	>>> add_integer('a', 2)
+	>>> add_integer("a", 2)
 	Traceback (most recent call last):
 		...
 	TypeError: a must be an integer
 
-	>>> add_integer(1, 'b')
+	>>> add_integer(1, "b")
 	Traceback (most recent call last):
 		...
 	TypeError: b must be an integer
@@ -67,4 +74,4 @@ Errors of floating-values. A error is raised.
 	>>> add_integer(float('nan'))
 	Traceback (most recent call last):
 		...
-	ValueError: cannot convert float NaN to integer	
+	ValueError: cannot convert float NaN to integer
