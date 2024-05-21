@@ -31,7 +31,7 @@ The number two is optionnal, by default is equal to 98.
 	100
 
 Non-Numbers
-=======
+===========
 
 ``add_integer()`` don't accept non-numbers values. A error is raised.
 
@@ -51,3 +51,20 @@ Non-Numbers
 	Traceback (most recent call last):
 		...
 	TypeError: a must be an integer
+
+Float-Errors
+============
+
+Errors of floating-values. A error is raised.
+
+::
+
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+		...
+	OverflowError: cannot convert float infinity to integer
+
+	>>> add_integer(float('nan'))
+	Traceback (most recent call last):
+		...
+	ValueError: cannot convert float NaN to integer	
