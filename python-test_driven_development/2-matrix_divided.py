@@ -27,30 +27,27 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
 
-    if not isinstance(matrix, list) or not matrix or not all(
-            isinstance(row, list) for row in matrix):
-        raise TypeError(
-                "matrix must be a matrix (list of lists) "
-                "of integers/floats")
+    msg_type = "matrix must be a matrix (list of lists) of integers/floats"
+
+    if not matrix or not isinstance(matrix, list):
+        raise TypeError(msg_type)
 
     new_matrix = []
-    row_length = len(matrix[0])
+    row_length = 0
+
+    msg_size = "Each row of the matrix must have the same size"
 
     for row in matrix:
-        if len(row) != row_length:
-            raise TypeError(
-                    "Each row of the matrix "
-                    "must have the same size")
+        if not row or not isinstance(row, list):
+            raise TypeError(msg_type)
 
-        new_row = []
+        if row_length != 0 and len(row) != row_length:
+            raise TypeError(msg_size)
 
-        for element in row:
-            if not isinstance(element, (int, float)):
-                raise TypeError(
-                        "matrix must be a matrix "
-                        "(list of lists) of integers/floats")
+        for num in row:
+            if not type(num) in (int, float):
+                raise TypeError(msg_type)
+        row_length = len(row)
 
-            new_row.append(round(element / div, 2))
-
-        new_matrix.append(new_row)
-    return new_matrix
+    new_m = map(lambda x: list(map(lambda y: round(y / div, 2), x)), matrix)
+    return list(new_m)
