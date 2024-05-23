@@ -51,6 +51,30 @@ Prints all special characters.
     	:
     	<BLANKLINE>
 
+Others tests with special characters.
+
+::
+
+	>>> text_indentation("   \n")
+    	<BLANKLINE>
+
+	>>> text_indentation("   \n   ")
+   	<BLANKLINE>
+
+	>>> text_indentation("\n   ")
+  	<BLANKLINE>
+
+	>>> text_indentation('\n.\n?\n:')
+    	<BLANKLINE>
+    	.
+    	<BLANKLINE>
+    	<BLANKLINE>
+    	?
+    	<BLANKLINE>
+    	<BLANKLINE>
+    	:
+    	<BLANKLINE>
+
 
 Errors
 ======
