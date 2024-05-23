@@ -49,3 +49,20 @@ Test sorted empty list.
 	[]
 	>>> my_list2.print_sorted()
 	[]
+
+
+Test remove elements.
+
+::
+
+	>>> my_list.pop(0)
+	1
+	>>> print(my_list)
+	[4, 2, 3, 5]
+
+Test sorted after pop.
+
+::
+
+        >>> my_list.print_sorted()
+        [2, 3, 4, 5]
