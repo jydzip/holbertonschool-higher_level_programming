@@ -25,6 +25,11 @@ Basics
 Errors
 ======
 
+	>>> text_indentation(5)
+	Traceback (most recent call last):
+		...
+	TypeError: text must be a string
+
 	>>> text_indentation(""")
 	Traceback (most recent call last):
 		...
