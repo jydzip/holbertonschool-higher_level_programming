@@ -29,6 +29,13 @@ class TestMaxInteger(unittest.TestCase):
     def test_one_number(self):
         self.assertEqual(max_integer([1]), 1)
 
+    def test_big_list(self):
+        self.assertEqual(max_integer([
+            1, 2, 9, 8, 7, 5, 12, 50, 80,
+            45, 4, 65, 75, 98, 1500, 200,
+            744, 655, 122, 75, 88, 63, 32,
+            887, 664, 123, 124, 125, 126]), 1500)
+
     def test_error_is_string(self):
         with self.assertRaises(TypeError):
             max_integer([0, "1"])
@@ -44,3 +51,7 @@ class TestMaxInteger(unittest.TestCase):
     def test_error_is_number(self):
         with self.assertRaises(TypeError):
             max_integer(5)
+
+    def test_error_is_dictionary(self):
+        with self.assertRaises(KeyError):
+            max_integer({'key1': 1, 'key2': 2})
