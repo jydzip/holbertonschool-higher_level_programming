@@ -21,6 +21,36 @@ Basics
 	And:
 	<BLANKLINE>
 	Holberton.
+	<BLANKLINE>
+
+Prints with spaces.
+
+::
+
+	>>> text_indentation("    Holberton    ")
+	Holberton
+
+Prints with a special character at the end.
+
+::
+
+	>>> text_indentation("    Hello    .")
+	Hello.
+	<BLANKLINE>
+
+
+Prints all special characters.
+
+::
+
+	>>> text_indentation(".?:")
+	.
+    	<BLANKLINE>
+    	?
+    	<BLANKLINE>
+    	:
+    	<BLANKLINE>
+
 
 Errors
 ======
@@ -29,6 +59,13 @@ Errors
 	Traceback (most recent call last):
 		...
 	TypeError: text must be a string
+
+
+	>>> text_indentation(None)
+        Traceback (most recent call last):
+                ...
+        TypeError: text must be a string
+
 
 	>>> text_indentation(""")
 	Traceback (most recent call last):

@@ -14,29 +14,13 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    sentences = []
-    pos = 0
-    for i in range(len(text)):
-        letter = text[i]
-        _delimit = False
+    s = text[:]
 
-        if letter in [".", "?", ":"]:
-            _delimit = True
+    for d in ".?:":
+        list_text = s.split(d)
+        s = ""
+        for i in list_text:
+            i = i.strip(" ")
+            s = i + d if s is "" else s + "\n\n" + i + d
 
-        try:
-            sentences[pos]
-        except Exception:
-            sentences.append("")
-        sentences[pos] += letter
-
-        if _delimit:
-            pos += 1
-            i += 1
-
-    size = len(sentences)
-    for i in range(size):
-        sentence = sentences[i]
-        if i == size - 1:
-            print(sentence.strip(), end="")
-        else:
-            print(sentence.strip(), end="\n\n")
+    print(s[:-3], end="")
