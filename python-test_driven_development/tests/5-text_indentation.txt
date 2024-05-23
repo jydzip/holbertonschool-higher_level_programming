@@ -71,3 +71,13 @@ Errors
 	Traceback (most recent call last):
 		...
 	SyntaxError: unterminated triple-quoted string literal (detected at line 1)
+
+	
+```text`` must be defined in argument.
+
+::
+
+	>>> text_indentation()
+        Traceback (most recent call last):
+                ...
+        TypeError: text_indentation() missing 1 required positional argument: 'text'
