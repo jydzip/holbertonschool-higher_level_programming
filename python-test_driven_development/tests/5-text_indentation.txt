@@ -89,13 +89,6 @@ Errors
         Traceback (most recent call last):
                 ...
         TypeError: text must be a string
-
-
-	>>> text_indentation(""")
-	Traceback (most recent call last):
-		...
-	SyntaxError: unterminated triple-quoted string literal (detected at line 1)
-
 	
 ```text`` must be defined in argument.
 
