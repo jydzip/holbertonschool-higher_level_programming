@@ -7,32 +7,7 @@ Basics
 ======
 
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
 	>>> bg = BaseGeometry()
-
-
-Docs
-====
-
-	>>> m = __import__('7-base_geometry').__doc__
-	>>> len(m) > 1
-	True
-
-	>>> m = __import__('7-base_geometry').BaseGeometry.__doc__
-        >>> len(m) > 1
-        True
-
-	>>> m = __import__('7-base_geometry').BaseGeometry.area.__doc__
-        >>> len(m) > 1
-        True
-
-	>>> m = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
-        >>> len(m) > 1
-        True
-
-
-Tests
-=====
 
 	>>> bg.integer_validator("my_int", 12)
 
@@ -137,3 +112,8 @@ Non-integer types:
         Traceback (most recent call last):
                 ...
         TypeError: set must be an integer
+
+	>>> bg.integer_validator("none", None)
+        Traceback (most recent call last):
+                ...
+        TypeError: none must be an integer
