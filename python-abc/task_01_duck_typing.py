@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ File class multiples shapes. """
 from abc import ABC, abstractmethod
-import math
+from math import pi
 
 
 class Shape(ABC):
@@ -21,10 +21,10 @@ class Circle(Shape):
         self.__radius = radius
 
     def area(self):
-        return math.pi * (self.__radius ** 2)
+        return pi * self.__radius ** 2
 
     def perimeter(self):
-        return 2 * math.pi * self.__radius
+        return 2 * pi * self.__radius
 
 
 class Rectangle(Shape):
