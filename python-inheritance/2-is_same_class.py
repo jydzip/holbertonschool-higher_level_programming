@@ -14,11 +14,4 @@ def is_same_class(obj, a_class):
         Return:
             (bool) Resultat.
     """
-    if isinstance(obj, a_class):
-        _dir_obj = dir(obj)
-        _dir_class = dir(a_class)
-        for dd in _dir_obj:
-            if dd not in _dir_class:
-                return False
-        return True
-    return False
+    return type(obj) is a_class
