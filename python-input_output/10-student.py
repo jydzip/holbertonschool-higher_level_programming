@@ -27,7 +27,7 @@ class Student:
         """
         _dict = {}
         _original_dict = self.__dict__
-        if not attrs:
+        if attrs is None:
             _dict = _original_dict
         else:
             for attr in attrs:
