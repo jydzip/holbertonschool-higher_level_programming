@@ -31,8 +31,7 @@ class Student:
             _dict = _original_dict
         else:
             for attr in attrs:
-                try:
-                    _dict[attr] = _original_dict[attr]
-                except KeyError:
-                    continue
+                value = _original_dict.get(attr, None)
+                if value:
+                    _dict[attr] = value
         return _dict
