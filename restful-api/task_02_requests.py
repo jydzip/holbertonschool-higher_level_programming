@@ -18,13 +18,12 @@ def fetch_and_save_posts():
     if response.status_code == 200:
         with open('posts.csv', 'w', newline='') as f:
             writer = csv.writer(f)
-            fields = ['userId', 'id', 'title', 'body']
+            fields = ['id', 'title', 'body']
 
             writer.writerow(fields)
             data = response.json()
             for dd in data:
                 writer.writerow([
-                    dd['userId'],
                     dd['id'],
                     dd['title'],
                     dd['body']
