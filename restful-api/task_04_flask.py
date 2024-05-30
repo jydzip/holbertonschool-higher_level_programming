@@ -5,8 +5,7 @@ from flask import request
 
 
 app = Flask(__name__)
-users = {"jane": {
-    "username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"}}
+users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
 
 
 @app.route('/')
@@ -16,10 +15,7 @@ def hello():
 
 @app.route('/data')
 def data():
-    usernames = []
-    for user in users.values():
-        usernames.append(user['username'])
-    return jsonify(usernames)
+    return jsonify(list(users.keys()))
 
 
 @app.route('/status')
@@ -45,7 +41,7 @@ def add_user():
     return jsonify({
         "message": "User added",
         "user": users[username]
-    })
+    }), 201
 
 
 if __name__ == "__main__":
