@@ -32,15 +32,10 @@ def show_user(username):
 def add_user():
     data = request.get_json()
     username = data['username']
-    users[username] = {
-            "username": username,
-            "name": data['name'],
-            "age": data['age'],
-            "city": data['city']
-    }
+    users[username] = data
     return jsonify({
         "message": "User added",
-        "user": users[username]
+        "user": data
     }), 201
 
 
