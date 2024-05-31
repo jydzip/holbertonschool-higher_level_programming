@@ -7,7 +7,7 @@ import json
 
 
 app = Flask(__name__)
-users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"}}
+users = {}
 
 
 @app.route('/')
@@ -79,7 +79,12 @@ def add_user():
     if username in users:
         return jsonify({"error": "User already exists"}), 400
 
-    users[username] = new_user
+    users[username] = {
+        "username": username,
+        "name": new_user.get("name"),
+        "age": new_user.get("age"),
+        "city": new_user.get("city")
+    }
     return jsonify({
         "message": "User added",
         "user": new_user
