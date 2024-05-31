@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+    Function file for Server http.server.
+"""
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
