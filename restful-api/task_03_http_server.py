@@ -11,9 +11,9 @@ class Server(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/":
             self.send_response(200)
+            self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(bytes(
-                "Hello, this is a simple API!", encoding='utf8'))
+            self.wfile.write(b"Hello, this is a simple API!")
 
         elif self.path == "/data":
             self.send_response(200)
@@ -21,7 +21,13 @@ class Server(BaseHTTPRequestHandler):
             self.end_headers()
 
             data = {"name": "John", "age": 30, "city": "New York"}
-            self.wfile.write(bytes(json.dumps(data), encoding='utf8'))
+            self.wfile.write(json.dumps(data).encode())
+
+        elif self.path == "/status":
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"OK")
 
         elif self.path == "/info":
             self.send_response(200)
@@ -32,7 +38,7 @@ class Server(BaseHTTPRequestHandler):
                     "version": "1.0",
                     "description": "A simple API built with http.server"
             }
-            self.wfile.write(bytes(json.dumps(data), encoding='utf8'))
+            self.wfile.write(json.dumps(data).encode())
 
         else:
             self.send_response(404)
