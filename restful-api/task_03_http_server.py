@@ -3,12 +3,9 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import json
 
 
-HOSTNAME = "localhost"
-PORT = 8000
-
-
 class Server(BaseHTTPRequestHandler):
     def do_GET(self):
+        """ Handle GET requests. """
         if self.path == "/":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
@@ -41,12 +38,12 @@ class Server(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data).encode())
 
         else:
-            self.send_response(404)
-            self.end_headers()
-            self.wfile.write(bytes("Endpoint not found", encoding='utf8'))
+            self.send_error(404, "Endpoint not found")
 
 
 if __name__ == "__main__":
+    HOSTNAME = ""
+    PORT = 8000
     server = HTTPServer((HOSTNAME, PORT), Server)
     print(f'Server started at port {PORT}...')
     server.serve_forever()
