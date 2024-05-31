@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-from flask import Flask, jsonify
+"""
+    Route flask API.
+"""
+from flask import Flask, jsonify, request
 import json
-from flask import request
 
 
 app = Flask(__name__)
@@ -24,14 +26,20 @@ def status():
 
 
 @app.route('/users/<username>')
-def show_user(username):
-    return jsonify(users[username])
+def get_user(username):
+    user = users.get(username)
+    if user:
+        return jsonify(user)
+    return jsonify({"error": "User not found"}), 404
 
 
 @app.route('/add_user', methods=['POST'])
 def add_user():
     data = request.get_json()
     username = data['username']
+    if username in users:
+        return jsonify({"error": "User already exists"}), 400
+
     users[username] = data
     return jsonify({
         "message": "User added",
