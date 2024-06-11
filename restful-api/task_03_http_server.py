@@ -41,7 +41,10 @@ class Server(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data).encode())
 
         else:
-            self.send_error(404, "Endpoint not found")
+            self.send_response(404)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"Endpoint not found")
 
 
 if __name__ == "__main__":
