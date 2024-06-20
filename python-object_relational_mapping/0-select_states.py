@@ -1,8 +1,20 @@
 import MySQLdb
 import sys
+"""
+    Script that lists all states from the database.
+"""
 
 
 def connectDb(user, password, db):
+    """
+        Get connection with the database.
+        Args:
+            user (str): Username of the user.
+            password (str): Password of the user.
+            db (str): Database to retrieve.
+        Return:
+            Connection database.
+    """
     conn = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -21,7 +33,7 @@ if __name__ == "__main__":
 
     conn = connectDb(user, password, db)
     cur = conn.cursor()
-    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
     query_rows = cur.fetchall()
     for row in query_rows:
         print(row)
