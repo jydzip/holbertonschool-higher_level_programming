@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-import MySQLdb
-import sys
 """
     Script that lists all states from the database.
 """
+import MySQLdb
+import sys
 
 
 def connectDb(user, password, db):
