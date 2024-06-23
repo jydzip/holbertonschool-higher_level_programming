@@ -16,7 +16,7 @@ if __name__ == "__main__":
     query = """
         SELECT *
         FROM states
-        WHERE states.name = '{}'
+        WHERE states.name LIKE BINARY '{}'
         ORDER BY states.id ASC""".format(argv[4])
     cursor.execute(query)
     rows = cursor.fetchall()
