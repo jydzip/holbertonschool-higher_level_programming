@@ -38,8 +38,8 @@ if __name__ == "__main__":
     cur.execute(f"""
         SELECT *
         FROM states
-        WHERE states.name = "{arg}"
-        ORDER BY states.id ASC
+        WHERE name LIKE BINARY '{arg}'
+        ORDER BY id ASC
     """)
     query_rows = cur.fetchall()
     for row in query_rows:
