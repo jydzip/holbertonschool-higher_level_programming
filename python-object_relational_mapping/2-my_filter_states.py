@@ -13,7 +13,11 @@ if __name__ == "__main__":
         db=argv[3]
     )
     cursor = conn.cursor()
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY states.id ASC".format(argv[4])
+    query = """
+        SELECT *
+        FROM states
+        WHERE name = '{}'
+        ORDER BY states.id ASC""".format(argv[4])
     cursor.execute(query)
     rows = cursor.fetchall()
     for row in rows:
