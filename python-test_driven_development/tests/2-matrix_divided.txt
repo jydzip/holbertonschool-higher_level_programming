@@ -132,3 +132,13 @@ Errors
 	Traceback (most recent call last):
 	    ...
 	ZeroDivisionError: division by zero
+
+Test Infinity
+
+::
+
+	>>> matrix = [[1, 2, 3],[4, 5, 6]]
+	>>> matrix_divided(matrix, float('inf'), 5)
+	Traceback (most recent call last):
+	...
+	TypeError: matrix_divided() takes 2 positional arguments but 3 were given
