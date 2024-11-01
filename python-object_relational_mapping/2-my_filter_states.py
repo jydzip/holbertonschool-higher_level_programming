@@ -21,6 +21,6 @@ if __name__ == "__main__":
     cursor.execute(query)
     rows = cursor.fetchall()
     for row in rows:
-        print("({}, '{}')".format(row))
-    cur.close()
+        print(row)
+    cursor.close()
     conn.close()
